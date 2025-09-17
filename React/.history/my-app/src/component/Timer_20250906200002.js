@@ -1,0 +1,22 @@
+import React, { useEffect, useState } from 'react';
+
+const Timer = () => {
+    const [message, setMessage] = useState('Hello Timer');
+    useEffect(() => {
+        const timer = setInterval(() => {
+            console.log('Timer: ', message);
+        }, 2000);
+        return () => {
+            clear
+            clearInterval(timer);
+        }
+    }, [message]);
+
+    return (
+        <div>
+            <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
+        </div>
+    );
+};
+
+export default Timer;
