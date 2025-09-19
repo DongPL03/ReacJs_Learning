@@ -1,0 +1,29 @@
+import React from "react";
+import { useAuth } from "../context/authContext";
+
+const HeaderMain = () => {
+  const { user } = useAuth();
+  return (
+    <div className="flex items-center justify-center p-4 bg-white shadow-md">
+      {user ? (
+        <div className="flex items-center gap-x-3">
+          <img
+            src=""
+            alt="User Avatar"
+            className="object-cover w-10 h-10 rounded-full"
+          />
+          <span className="text-sm font-medium">
+            Welcome back <strong>{user.fullname}</strong>
+          </span>
+        </div>
+      ) : (
+        <span className="text-sm font-medium">Welcome</span>
+      )}
+      <button className="p-2 ml-auto text-black bg-gray-400 rounded-lg cursor-pointer">
+        Sign out
+      </button>
+    </div>
+  );
+};
+
+export default HeaderMain;
